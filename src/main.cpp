@@ -366,7 +366,7 @@ int main() {
             }
             // check if car is in ego's lane
             if (ln == get_lane_num(lane)) {
-              // check that it is infront of ego
+              // check that it is in front of ego
               if (in_front_of_ego) {
                 if ((their_s - current_car_s) < closest_to_ego) {
                   car_in_path_speed = pp::to_mph(their_vel);
@@ -395,7 +395,7 @@ int main() {
 
           vector<int> lane_options = get_lane_options(get_lane_num(lane));
 
-          // if the car infront of ego is going to slow determine costs of
+          // if the car in front of ego is going to slow determine costs of
           // changing lanes before it has to slow down
           if (too_slow) {
             double speed_cost =
@@ -481,6 +481,7 @@ int main() {
           ptsxy.push_back(next_wp1);
           ptsxy.push_back(next_wp2);
 
+          // translate to map coordinates 
           for (size_t i = 0; i < ptsxy.size(); ++i) {
             pp::Point shift(ptsxy[i].X - ref_xy.X, ptsxy[i].Y - ref_xy.Y);
             ptsxy[i] = pp::Point(
